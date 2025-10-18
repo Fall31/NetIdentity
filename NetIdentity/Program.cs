@@ -42,6 +42,14 @@ builder.Services.AddAuthorization(options =>
             }
             return false;
         }));
+    options.AddPolicy("EsFemenino", policy =>
+        policy.RequireClaim("Genero", "Femenino"));
+
+    options.AddPolicy("EsMasculino", policy =>
+        policy.RequireClaim("Genero", "Masculino"));
+
+    options.AddPolicy("EsNo-Binario", policy =>
+        policy.RequireClaim("Genero", "No-Binario"));
 
     options.AddPolicy("SoloAdmin", policy => policy.RequireRole("Admin"));
 

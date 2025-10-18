@@ -15,12 +15,14 @@ namespace NetIdentity.Controllers
         //modelo->controlador->vista
         //vista->controlador
         [Authorize(Policy = "menoresEdad")]
+        [Authorize(Policy = "EsMasculino")] 
         public IActionResult Deportes()
         {
             return View();
         }
 
         [Authorize(Roles = "Admin")]
+        [Authorize(Policy = "EsNo-Binario")]
         public IActionResult Tareas()
         {
             return View();

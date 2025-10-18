@@ -13,6 +13,7 @@ namespace NetIdentity.Controllers
         }
 
         [Authorize(Roles = "Admin,Usuario")]
+        [Authorize(Policy ="EsFemenino")]
         public IActionResult JuegoEducativo()
         {
             return View();
